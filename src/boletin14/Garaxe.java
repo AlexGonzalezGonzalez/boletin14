@@ -12,22 +12,35 @@ import javax.swing.JOptionPane;
  * @author tperezrodriguez
  */
 public class Garaxe {
-    private int nCoches;
-    private String matricula;
-    private int plazasTotales = 5;
-    
-    public void aparcarCoche (){
-        
-         for(int c=0; c<5; c++){
-          int matricula = Integer.parseInt(JOptionPane.showInputDialog("Ingrese matrícula"));
-          matricula = nCoches++;
-          
-          if (nCoches <5){ 
-              plazasTotales --;
-              JOptionPane.showMessageDialog(null, "Quedan "+plazasTotales+" plazas libres");
-          } else {
-            JOptionPane.showMessageDialog(null, "¡COMPLETO!");
-          }
+
+    int nCoches;
+    String matricula;
+    int plazasTotales = 5;
+    double tiempo;
+    double prezo;
+
+    public void aparcarCoche() {
+
+        for (int c = 0; c < 5; c++) {
+            matricula = JOptionPane.showInputDialog("Ingrese matrícula");
+            nCoches++;
+            factura mt = new factura();
+            
+            tiempo = (int) (Math.random() * 10) + 1;
+            if (tiempo > 3.0) {
+                prezo = ((double) tiempo - 3) * 0.2 + 1.5;
+            } else {
+                prezo = 1.5;
+            }
+            mt.factura(matricula, tiempo, prezo);
+           
+
+            if (nCoches < 5) {
+                plazasTotales--;
+                JOptionPane.showMessageDialog(null, "Quedan " + plazasTotales + " plazas libres");
+            } else {
+                JOptionPane.showMessageDialog(null, "¡COMPLETO!");
+            }
         }
     }
 
