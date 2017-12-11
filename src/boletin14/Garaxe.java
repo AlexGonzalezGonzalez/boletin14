@@ -16,19 +16,20 @@ public class Garaxe {
     int nCoches;
     String matricula;
     int plazasTotales = 5;
-    double tiempo;
+    long tiempoInicio,tiempo;
     double prezo;
-
+    
     public void aparcarCoche() {
 
-        for (int c = 0; c < 5; c++) {
+        for (int c = 0; c < plazasTotales; c++) {
+            tiempoInicio=System.currentTimeMillis();
             matricula = JOptionPane.showInputDialog("Ingrese matrícula");
             nCoches++;
             factura mt = new factura();
             
-            tiempo = (int) (Math.random() * 10) + 1;
-            if (tiempo > 3.0) {
-                prezo = ((double) tiempo - 3) * 0.2 + 1.5;
+            tiempo =    System.currentTimeMillis()-tiempoInicio;
+            if (tiempo > 7200000) {
+                prezo = ( tiempo - 7200000) * 0.2 + 1.5;
             } else {
                 prezo = 1.5;
             }
@@ -36,7 +37,7 @@ public class Garaxe {
            
 
             if (nCoches < 5) {
-                plazasTotales--;
+                
                 JOptionPane.showMessageDialog(null, "Quedan " + plazasTotales + " plazas libres");
             } else {
                 JOptionPane.showMessageDialog(null, "¡COMPLETO!");
