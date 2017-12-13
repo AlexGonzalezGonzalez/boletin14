@@ -23,6 +23,7 @@ public class factura extends Garaxe {
         mensaje = JOptionPane.showInputDialog("Introduzca cartos");
         cartosR = Integer.parseInt(mensaje);
          System.out.println("Cartos recibidos: " + cartosR);
+         
          cartosD = cartosR - prezo;
         System.out.println("Cartos devoltos: " + cartosD);
         System.out.println("Grazas por usar o noso aparcadoiro");

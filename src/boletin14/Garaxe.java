@@ -28,8 +28,8 @@ public class Garaxe {
             factura mt = new factura();
             
             tiempo =    System.currentTimeMillis()-tiempoInicio;
-            if (tiempo > 7200000) {
-                prezo = ( tiempo - 7200000) * 0.2 + 1.5;
+            if (tiempo > 3000) {
+                prezo = ( tiempo - 3000) * 0.0002 + 1.5;
             } else {
                 prezo = 1.5;
             }
